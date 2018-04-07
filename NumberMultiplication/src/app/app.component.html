@@ -1,0 +1,20 @@
+<div style="text-align:center">
+  <h1>
+    Welcome
+  </h1>
+  <img class="logo" [src]="appLogoPath" alt="Math Signs Logo" />
+</div>
+<div class="main-class">
+  <div class="multiply">
+    <p>Enter the multiplicand value:</p>
+    <input type="text" (keyup)="checkInput($event)" [(ngModel)]="multiplicand" name="multiplicandCtrl" class="normal-input" [ngClass]="{'error-input' : isMultiplicandHasError}">
+    <p>Enter the multiplier value:</p>
+    <input type="text" (keyup)="checkInput($event)" [(ngModel)]="multiplier" name="multiplierCtrl" class="normal-input" [ngClass]="{'error-input' : isMultiplierError}">
+    <div class="result-class">RESULT</div>
+    <input multiply-directive type="text" readonly [(ngModel)]="multipliedResult" name="resultCtrl" required #resultCtrl="ngModel">
+    <input type="button" (click)="Multiply()" class="button-class pointer disabled-button-class" [disabled]="isButtonDisabled"
+      [ngClass]="{'enabled-button-class' : !isButtonDisabled}" value="Multiply">
+    <input type="button" (click)="saveData()" class="button-class disabled-button-class" [disabled]="isButtonDisabled" [ngClass]="{'enabled-button-class' : !isButtonDisabled}"
+      value="Save">
+  </div>
+</div>
